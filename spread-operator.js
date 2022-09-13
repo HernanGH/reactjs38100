@@ -50,17 +50,17 @@
  * 4 rest operator
  */
 
-const genericSum = (...allParameters) => {
-  let total = 0
-  console.log(allParameters)
-  allParameters.forEach((parameter) => {
-    total+= parameter
-  })
-  return total
-}
+// const genericSum = (...listOfParameters) => {
+//   let total = 0
+//   console.log(listOfParameters)
+//   listOfParameters.forEach((parameter) => {
+//     total+= parameter
+//   })
+//   return total
+// }
  
-const result = genericSum(1, 2, 3, 4 , 5, 6, 100)
-console.log('El resultado de la suma es: ', result);
+// const result = genericSum(1, 2, 3, 4 , 5)
+// console.log('El resultado de la suma es: ', result);
 
 /**
  * 5 spread en objetos
@@ -72,35 +72,38 @@ console.log('El resultado de la suma es: ', result);
 //   dni: 10000000
 // }
 
-// const contactData = {
-//   mail: 'lmessi@mail.com',
-//   phone: '1122334455',
-//   password: 'lmessi10',
-//   username: 'lmessi',
-//   address: {
-//     country: 'France',
-//     state: 'Paris'
-//   }
-// }
+// const personCopyReference = person // EVITAR FUERTE
 
 // const personCopy = { ...person }
 
-// const user = {
-//   ...person,
-//   ...contactData
-// }
+// console.log(personCopy);
 
-// const userExtended = {
-//   ...user,
-//   age: 35,
-//   weight: '85kg'
-// }
+const contactData = {
+  mail: 'lmessi@mail.com',
+  phone: '1122334455',
+  password: 'lmessi10',
+  username: 'lmessi',
+  address: {
+    country: 'France',
+    state: 'Paris',
+    street: {
+      name: 'asd',
+      number: 123
+    }
+  }
+}
 
-// user.name = 'Ronaldo'
-// user.address.country = 'Inglaterra'
-// user.address = {
-//   ...user.address,
-//   country: 'Inglaterra'
-// }
-// console.log({ user })
-// console.log({ userExtended })
+const contactDataCopy = { 
+  ...contactData,
+  address: {
+    ...contactData.address,
+    street: {
+      ...contactData.address.street
+    }
+  }
+}
+
+contactData.address.country = 'Argentina'
+contactData.address.state = 'Bs As'
+
+console.log(contactDataCopy);
