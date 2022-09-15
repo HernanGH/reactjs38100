@@ -3,6 +3,7 @@ import './App.css';
 import MyComponent from './components/MyComponent';
 import NavBar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   console.log('hola esto esta funcionando');
@@ -13,20 +14,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <div className="App">
-        HOLA CODERS
-      </div>
-      <div className="App">
-        CHAU CODERS
-      </div>
-      <MyComponent name='coder' value={value} saludar={saludar}>
-        CONTENIDO INTERNO DEL COMPONENTE MYCOMPONENT
-        <h1>ASD</h1>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-      </MyComponent>
+      <ItemListContainer greeting={'Bienvenidos a mi tienda'} />
     </>
   );
 }

@@ -1,4 +1,6 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
+import CartWidget from "./CartWidget";
+import './CartWidget.css';
 
 const NavBar = () => {
   return (
@@ -9,9 +11,12 @@ const NavBar = () => {
         </Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Bebidas</Nav.Link>
-          <Nav.Link href="#pricing">Alimentos</Nav.Link>
+          <Nav.Link href="#bebidas">Bebidas</Nav.Link>
+          <Nav.Link href="#alimentos">Alimentos</Nav.Link>
+          <Nav.Link href="#contactos">Contactos</Nav.Link>
+          <Nav.Link href="#nosotros">Nosotros</Nav.Link>
         </Nav>
+        <CartWidget />
       </Container>
     </Navbar>
   )
