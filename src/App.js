@@ -10,13 +10,12 @@ function App() {
   const value = { price: 100, title: 'asd'};
 
   const saludar = () => console.log('Holaaa!!')
-
-  return (
-    <>
-      <NavBar />
-      <ItemListContainer greeting={'Bienvenidos a mi tienda'} />
-    </>
-  );
+    return (
+      <>
+        <NavBar />
+        <ItemListContainer greeting={'Bienvenidos a mi tienda'} />
+      </>
+    );
 }
 
 export default App;
