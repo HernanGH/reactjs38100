@@ -4,6 +4,7 @@ import MyComponent from './components/MyComponent';
 import NavBar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from './components/ItemListContainer';
+import MapComponent from './components/MapComponent';
 
 function App() {
   console.log('hola esto esta funcionando');
