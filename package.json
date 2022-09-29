@@ -21,6 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://hernangh.github.io/reactjs38100",
   "eslintConfig": {
     "extends": [
       "react-app",
