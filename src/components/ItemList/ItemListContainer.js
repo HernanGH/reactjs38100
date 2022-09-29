@@ -1,22 +1,24 @@
 import './ItemListContainer.css';
 import Container from 'react-bootstrap/Container';
 import { useEffect, useState } from 'react';
-import CartWidget from '../CartWidget/CartWidget';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
-const products = [
-  {id: 1, name:'pizza', description:'string', stock:'number'},
-  {id: 2, name:'hamburguesa', description:'string', stock:'number'},
-  {id: 3, name:'ensalada', description:'string', stock:'number'},
-  {id: 4, name:'empanadas', description:'string', stock:'number'}
-]
+import { getProducts } from '../../utils/products';
 
 const ItemListContainer = ({ greeting }) => {
   const { categoryName } = useParams();
+  const [products, setProducts] = useState([]);
+
   
   useEffect(() => {
     console.log(categoryName);
   }, [categoryName])
+
+  useEffect(() => {
+    getProducts()
+      .then((data) => setProducts(data))
+      .catch((error) => console.warn(error))
+  }, [])
 
   return (
     <Container>
