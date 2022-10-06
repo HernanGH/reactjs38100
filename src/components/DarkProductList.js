@@ -1,11 +1,23 @@
 import { useContext, useEffect, useState } from "react";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext, { ThemeProvider } from "../contexts/ThemeContext";
+import Form from 'react-bootstrap/Form';
 import { getAllProducts } from "../utils/products";
 import './DarkProductList.css';
 
+const Switch = () => {
+  const { switchDarkMode } = useContext(ThemeContext);
+  return (
+    <Form.Check 
+      type="switch"
+      id="custom-switch"
+      label="Activar/Desactivar dark mode"
+      onClick={switchDarkMode}
+    />
+  )
+} 
+
 const Item = ({product}) => {
-  const isDarkMode = useContext(ThemeContext);
-  console.log(isDarkMode);
+  const {isDarkMode} = useContext(ThemeContext);
   const className = isDarkMode ? 'item-dark' : '';
 
   return (
@@ -28,7 +40,6 @@ const List = ({products}) => {
 }
 
 const DarkProductList = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
   const [products, setProducts] = useState([]);
   
   useEffect(() => {
@@ -37,14 +48,15 @@ const DarkProductList = () => {
       .catch((error) => console.warn(error))
   }, [])
 
-  const className = isDarkMode ? 'container-dark' : '';
+  // const className = isDarkMode ? 'container-dark' : '';
 
   return (
-    <div className={className}>
+    <div>
       <h1>Lista de Productos</h1>
-      <ThemeContext.Provider value={isDarkMode}>
+      <ThemeProvider>
+        <Switch />
         <List products={products} />
-      </ThemeContext.Provider>
+      </ThemeProvider>
     </div>
   );
 }
