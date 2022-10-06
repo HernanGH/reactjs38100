@@ -11,13 +11,15 @@ import Checkout from './components/Checkout';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import Events from './components/Events';
 import Intercambiabilidad from './components/Intercambiabilidad';
+import DarkProductList from './components/DarkProductList';
 
 function App() {
     return (
       <BrowserRouter basename='/reactjs38100'>
         <NavBar />
         {/* <Events /> */}
-        <Intercambiabilidad />
+        {/* <Intercambiabilidad /> */}
+        <DarkProductList />
         {/* <Routes>
           <Route path='/' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
           <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
