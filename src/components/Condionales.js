@@ -5,28 +5,28 @@ const Condionales = () => {
   
   // #1 return temprano
   if (loading) {
-    return <p>Cargando...</p>
+    return <h4>Cargando...</h4>
   }
 
   return (
     <>
-     <p>Carga completa</p> 
+     <h4>Carga completa</h4> 
     </>
   );
 
   // #2 inline con frament
   // return (
   //   <>
-  //     {loading && <p>Cargando...</p>}
-  //     {!loading && <p>Carga completa</p>}
+  //     {loading && <h4>Cargando...</h4>}
+  //     {!loading && <h4>Carga completa</h4>}
   //   </>
   // )
 
   // #3 inline con ternary
   // return (
-  //   <p>
+  //   <h4>
   //     {loading ? 'Cargando...' : 'Carga completa'}
-  //   </p>
+  //   </h4>
   // )
 }
  
