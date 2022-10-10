@@ -1,20 +1,20 @@
 import { useState } from "react";
+import ItemCount from "../ItemCount/ItemCount";
 import Item from "../ItemList/Item"
+import './ItemDetail.css'; 
 
 const ItemDetail = ({ product }) => {
   const [count, setCount] = useState(0);
 
-  const handleClick = (value) => {
+  const handleAdd = (value) => {
     setCount(value);
   };
 
   return (
-    <>
+    <div className='itemDetailContainer'>
       <Item product={product} />
-      <button onClick={() => handleClick(count - 1)}>-</button>
-      <h4>Cantidad de click {count}</h4>
-      <button onClick={() => handleClick(count + 1)}>+</button>
-    </>
+      <ItemCount initial={0} stock={10} onAdd={handleAdd} />
+    </div>
   );
 }
  

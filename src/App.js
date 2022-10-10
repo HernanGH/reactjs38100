@@ -22,14 +22,14 @@ function App() {
           <NavBar />
           {/* <Events /> */}
           {/* <Intercambiabilidad /> */}
-          <DarkProductList />
-          {/* <Routes>
+          {/* <DarkProductList /> */}
+          <Routes>
             <Route path='/' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
             <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
             <Route path='/item/:id' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/checkout' element={<Checkout />} />
-          </Routes> */}
+          </Routes>
         </CacheProvider>
       </BrowserRouter>
     );
