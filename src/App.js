@@ -13,6 +13,7 @@ import Events from './components/Events';
 import Intercambiabilidad from './components/Intercambiabilidad';
 import DarkProductList from './components/DarkProductList';
 import CacheContext, { CacheProvider } from './contexts/CacheContext';
+import Condionales from './components/Condionales';
 
 function App() {
 
@@ -23,13 +24,14 @@ function App() {
           {/* <Events /> */}
           {/* <Intercambiabilidad /> */}
           {/* <DarkProductList /> */}
-          <Routes>
+          <Condionales />
+          {/* <Routes>
             <Route path='/' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
             <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
             <Route path='/item/:id' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/checkout' element={<Checkout />} />
-          </Routes>
+          </Routes> */}
         </CacheProvider>
       </BrowserRouter>
     );
