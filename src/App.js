@@ -14,6 +14,9 @@ import Intercambiabilidad from './components/Intercambiabilidad';
 import DarkProductList from './components/DarkProductList';
 import CacheContext, { CacheProvider } from './contexts/CacheContext';
 import Condionales from './components/Condionales';
+import FavoritosContext, { FavoritosProvider } from './contexts/FavoritosContext';
+import Favoritos from './components/Favoritos';
+
 
 function App() {
 
@@ -24,14 +27,17 @@ function App() {
           {/* <Events /> */}
           {/* <Intercambiabilidad /> */}
           {/* <DarkProductList /> */}
-          <Condionales />
-          {/* <Routes>
-            <Route path='/' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
-            <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
-            <Route path='/item/:id' element={<ItemDetailContainer />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='/checkout' element={<Checkout />} />
-          </Routes> */}
+          {/* <Condionales /> */}
+          <FavoritosProvider>
+            <Routes>
+              <Route path='/' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
+              <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
+              <Route path='/item/:id' element={<ItemDetailContainer />} />
+              <Route path='/cart' element={<Cart />} />
+              <Route path='/checkout' element={<Checkout />} />
+              <Route path='/favs' element={<Favoritos />} />
+            </Routes>
+          </FavoritosProvider>
         </CacheProvider>
       </BrowserRouter>
     );
