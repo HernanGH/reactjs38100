@@ -13,6 +13,8 @@ const ItemCount = ({ initial, stock, onAdd }) => {
     setCount(count + 1)
   }
 
+  const handleClick = () => onAdd(count);
+
   useEffect(() => {
       setCount(parseInt(initial));
   },[initial])
@@ -29,7 +31,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
           </Button>
         </div>
       <div>
-      <Button variant="primary" disabled={stock <= 0} onClick={() => onAdd(count)}>
+      <Button variant="primary" disabled={stock <= 0} onClick={handleClick}>
         Agregar al  Carrito
       </Button>
       </div>
