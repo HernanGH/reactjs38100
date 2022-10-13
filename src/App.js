@@ -17,6 +17,7 @@ import Condionales from './components/Condionales';
 import FavoritosContext, { FavoritosProvider } from './contexts/FavoritosContext';
 import Favoritos from './components/Favoritos';
 import { doc, getFirestore, getDoc, collection, getDocs } from 'firebase/firestore';
+import { CartProvider } from './contexts/CartContext';
 
 function App() {
     // acceso a un documento especifico -> detail
@@ -70,21 +71,23 @@ function App() {
     return (
       <BrowserRouter basename='/reactjs38100'>
         <CacheProvider>
-          <NavBar />
-          {/* <Events /> */}
-          {/* <Intercambiabilidad /> */}
-          {/* <DarkProductList /> */}
-          {/* <Condionales /> */}
-          <FavoritosProvider>
-            <Routes>
-              <Route path='/' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
-              <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
-              <Route path='/item/:id' element={<ItemDetailContainer />} />
-              <Route path='/cart' element={<Cart />} />
-              <Route path='/checkout' element={<Checkout />} />
-              <Route path='/favs' element={<Favoritos />} />
-            </Routes>
-          </FavoritosProvider>
+          <CartProvider>
+            <NavBar />
+            {/* <Events /> */}
+            {/* <Intercambiabilidad /> */}
+            {/* <DarkProductList /> */}
+            {/* <Condionales /> */}
+            <FavoritosProvider>
+              <Routes>
+                <Route path='/' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
+                <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Bienvenidos a mi tienda'} />} />
+                <Route path='/item/:id' element={<ItemDetailContainer />} />
+                <Route path='/cart' element={<Cart />} />
+                <Route path='/checkout' element={<Checkout />} />
+                <Route path='/favs' element={<Favoritos />} />
+              </Routes>
+            </FavoritosProvider>
+          </CartProvider>
         </CacheProvider>
       </BrowserRouter>
     );
