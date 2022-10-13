@@ -16,9 +16,56 @@ import CacheContext, { CacheProvider } from './contexts/CacheContext';
 import Condionales from './components/Condionales';
 import FavoritosContext, { FavoritosProvider } from './contexts/FavoritosContext';
 import Favoritos from './components/Favoritos';
-
+import { doc, getFirestore, getDoc, collection, getDocs } from 'firebase/firestore';
 
 function App() {
+    // acceso a un documento especifico -> detail
+    useEffect(() => {
+      // obtenemos la base de datos
+      const database = getFirestore();
+
+      // obtener referencia al documento
+      const itemReference = doc(database, 'items', 'jbjM5mU1VJIPOexaXUIn');
+
+      // obtener el documento apartir del a referencia
+      getDoc(itemReference)
+        .then((snapshot) => {
+          // preguntamos si exite este documento
+          if(snapshot.exists()) {
+            // armamos un objeto literal con el id y los demas campos del documento
+            const item = {
+              id: snapshot.id,
+              ...snapshot.data()
+            };
+            console.log(item);
+          }
+        })
+        .catch(error => console.warn(error))
+
+    }, []);
+
+    // acceso a una coleccion -> list
+    useEffect(() => {
+      // obtenemos la base de datos
+      const database = getFirestore();
+
+      // obtenemos la refencia a la collecion items
+      const collectionReference = collection(database, 'items');
+
+      // obtenemos los datos apartir de la referencia
+      getDocs(collectionReference)
+        .then((snapshot) => {
+          // armamos un lista de objetos literales con los id y los demas campos de cada documento
+          const list = snapshot
+            .docs
+            .map((doc) => ({
+              id: doc.id,
+              ...doc.data()
+            }));
+          console.log(list);
+        })
+        .catch(error => console.warn(error))
+    }, []);
 
     return (
       <BrowserRouter basename='/reactjs38100'>
