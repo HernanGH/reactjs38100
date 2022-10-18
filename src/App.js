@@ -18,9 +18,10 @@ import FavoritosContext, { FavoritosProvider } from './contexts/FavoritosContext
 import Favoritos from './components/Favoritos';
 import { doc, getFirestore, getDoc, collection, getDocs } from 'firebase/firestore';
 import { CartProvider } from './contexts/CartContext';
+import { createAllProducts } from './utils/products';
 
 function App() {
-
+    
     return (
       <BrowserRouter basename='/reactjs38100'>
         <CacheProvider>
